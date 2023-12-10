@@ -103,4 +103,40 @@ const filmy = [
 			'Na zámek v podhůří Krkonoš přijíždí jeho nový majitel Štěpán se svojí snoubenkou, krásnou komtesou Blankou, a mladším bratrem Adamem. Cestou kočár nešťastně srazí kolemjdoucí dívku, Adam jí pomůže a ona se do něj zamiluje. Na zámku Adam objeví starou vlašskou knihu, která by měla obsahovat cestu k pokladům. Tajemné značky vlašské knihy však nedokáže vyluštit ani národopisec Jiráček, který v kraji sbírá pověsti a nevychází z údivu nad tím, že zdejší lidé stále věří v Krakonoše. Na zámku se objeví záhadný cizinec a nabídne Štěpánovi, že jej k pokladu za určitých podmínek dovede. Výprava do hor může začít. Naplní se Liduščina láska k Adamovi? Jakou záhadu skrývá starý obraz na zámku Hůrka a co strašlivého se v horách kdysi odehrálo? A kdo je vlastně Krakonoš a jaké je jeho největší tajemství? (csfd.cz, Česká televize)',
 		premiera: '2022-12-24',
 	},
+	{
+		id: 'avatar',
+		nazev: 'Avatar',
+		plakat: {
+			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/166/571/166571534_eb2b3b.jpg',
+			sirka: 420,
+			vyska: 592,
+		},
+		ochutnavka: 'Fantasy film Avatar.',
+		popis:
+			'Avatar před námi otevírá neuvěřitelný svět za hranicemi naší fantazie, svět střetu dvou naprosto odlišných civilizací. Nově objevená vzdálená planeta Pandora je mírumilovné místo s obyvatelstvem - Na’vi, žijícím v souladu s divukrásnou vegetací planety. Posádka vyslaná ze Země na své průzkumné misi objeví na Pandoře velmi cenný minerál, který by měl na Zemi nevyčíslitelnou hodnotu. Pobyt na Pandoře je ovšem pro člověka možný teprve po vytvoření jeho genetického dvojníka, hybrida Avataru, který může být ovládán psychikou oddělenou od lidského těla a fyzicky odpovídá původnímu obyvatelstvu Pandory, které má fluorescentní modrou kůži a dosahuje 3m výšky. Na tuto náročnou misi je vybrán mezi jinými také Jake Sully (Sam Worthington), bývalý námořník, který byl při jedné ze svých předešlých misí paralyzován od pasu dolů. A právě šance opět chodit přiměla Jakea, aby se do programu Avatar přihlásil.			Průzkumná mise je vyslána a po přistání na Pandoře je zcela ohromena úžasnou rozmanitostí místní vegetace. Stromy dosahují výšky mrakodrapů a světélkující prales je plný nádherných tvorů, které jste nikdy neviděli, ale také hrozných prehistorických predátorů. To je jen zrnko překvapení, které posádku čeká. I když se zdá, že po počáteční nedůvěře lidí Na’vi se posádce podařilo adaptovat a také získat prostor pro diplomatickou misi, pandořané se rozhodně nehodlají nechat kolonizovat a dojde ke tvrdému střetu. Jake, který se postupně sblížil s místním obyvatelstvem, a především s místní princeznou Neytiri, stojí před rozhodnutím, za koho bojovat ve finální bitvě, která má rozhodnout o osudu a vývoji celého světa. (Bontonfilm, csfd.cz)',
+		premiera: '2009-09-22',
+	},
 ]
+
+let seznamFilmov = document.querySelector('#seznam-filmu')
+seznamFilmov.innerHTML = ''
+
+filmy.forEach((film) => {
+	seznamFilmov.innerHTML += `
+	<div class="col">
+					<div class="card">
+						<img
+							src="${film.plakat.url}"
+							width="${film.plakat.sirka}"
+							height="${film.plakat.vyska}"
+							class="card-img-top"
+							alt="plakát"
+						/>
+						<div class="card-body">
+							<h5 class="card-title">${film.nazev}</h5>
+							<p class="card-text">${film.ochutnavka}</p>
+							<a href="film.html#${film.id}" class="btn btn-primary">Přehrát</a>
+						</div>
+					</div>
+				</div>`
+})
